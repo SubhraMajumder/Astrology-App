@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import Main from './components/Main';
+import React, {useState} from 'react';
+import './App.css'
 
 function App() {
+  const [zod, setZod] = useState("");
+  const [day, setDay] = useState("");
+
+  const handleZodiac = (e) => {
+    let sz = e.target.innerText.toLowerCase()
+    setZod(sz)
+  }
+
+  const handleDay = (e) => {
+    let dt = e.target.innerText.toLowerCase()
+    setDay(dt)
+  }  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Main zodiac={zod} day={day} handleZodiac={handleZodiac} handleDay={handleDay} />
+    </>
   );
 }
 
